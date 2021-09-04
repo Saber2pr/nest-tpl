@@ -1,18 +1,21 @@
 import { WinstonModule } from 'nest-winston';
 
 import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
-import { winstonOptions } from './config';
+import { mysqlOptions, winstonOptions } from './config';
 import { LoggerMiddleware } from './middleware/logger.middleware';
-import { HelloService } from './modules/hello/hello.service';
-import { HelloController } from './modules/hello/hello.controller';
 import { HelloModule } from './modules/hello/hello.module';
 
 @Module({
-  imports: [WinstonModule.forRoot(winstonOptions), HelloModule],
-  controllers: [AppController, HelloController],
-  providers: [HelloService],
+  imports: [
+    TypeOrmModule.forRoot(mysqlOptions),
+    WinstonModule.forRoot(winstonOptions),
+    HelloModule,
+  ],
+  controllers: [AppController],
+  providers: [],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): any {

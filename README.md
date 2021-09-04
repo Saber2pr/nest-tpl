@@ -2,7 +2,7 @@
 
 > nest server template.
 
-[Api Document](./api.md)
+[Api Document](./docs/api.md)
 
 ## From Docker
 
