@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### 2.4 获取单词
-GET {{base}}/hello/word/list?id=2
+GET {{base}}/hello/word/list?id=id
 
 ### 2.5 删除单词
 DELETE {{base}}/hello/word/delete

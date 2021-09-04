@@ -746,10 +746,10 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
-"@saber2pr/nest-swagger-md@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/@saber2pr/nest-swagger-md/-/nest-swagger-md-0.0.6.tgz#bd2d296d8cbc4d99d0dc6427bc20fd1999f300a8"
-  integrity sha512-wNKLmSgJ+WpKaBYd8okAiUOrtWLRPJDKvV45iTyTRbYZYOK4IaFEkxJWND4Gp5keqNjH1M2cdOE/zSPjsklnBw==
+"@saber2pr/nest-swagger-md@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.nlark.com/@saber2pr/nest-swagger-md/download/@saber2pr/nest-swagger-md-0.0.7.tgz?cache=0&sync_timestamp=1630736716773&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40saber2pr%2Fnest-swagger-md%2Fdownload%2F%40saber2pr%2Fnest-swagger-md-0.0.7.tgz#55322936ee94bd7ce3727d67e93df735f21c1517"
+  integrity sha1-VTIpNu6UvXzjcn1n6T33NfIcFRc=
   dependencies:
     "@nestjs/swagger" "^5.0.9"
     "@types/node" "^16.3.3"
