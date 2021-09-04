@@ -1,0 +1,45 @@
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import createApiMarkdownDocs from '@saber2pr/nest-swagger-md';
+
+import { AppModule } from './app.module';
+import { Cluster } from './cluster';
+import { ResponseInterceptor } from './interceptor/response.interceptor';
+import { createOutputPath } from './utils/env';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  const options = new DocumentBuilder()
+    .setTitle('nest-api-hello')
+    .setDescription('hello接口服务')
+    .setVersion('1.0')
+    .build();
+
+  const document = SwaggerModule.createDocument(app, options);
+  await createApiMarkdownDocs(document, createOutputPath('./api.md'));
+  SwaggerModule.setup('api', app, document);
+
+  // log
+  const winstonLogger = app.get(WINSTON_MODULE_NEST_PROVIDER);
+  app.useLogger(winstonLogger);
+
+  const prefix = '/v1';
+  app.setGlobalPrefix(prefix);
+  app.useGlobalInterceptors(new ResponseInterceptor(winstonLogger));
+
+  const PORT = 3000;
+  await app.listen(PORT, () =>
+    console.log(
+      `server listening on port http://localhost:${PORT}${prefix} with the single worker ${process.pid}`,
+    ),
+  );
+}
+
+if (process.env.CLUSTER) {
+  Cluster.register(bootstrap);
+} else {
+  bootstrap();
+}

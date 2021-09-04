@@ -1,0 +1,10 @@
+### vars
+@base=http://localhost:3000/v1
+
+### /
+
+GET {{base}}/
+
+### hello
+
+GET {{base}}/hello/word?prefix=test
