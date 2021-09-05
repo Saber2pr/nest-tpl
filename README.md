@@ -14,12 +14,14 @@ docker run -d -p 3000:3000 -it user/image:tag
 ## Env
 
 ```sh
-# -e host=localhost -e port=3306 -e username=root -e password=root -e database=nest_api_hello
-host=localhost
-port=3306
-username=root
-password=root
-database=nest_api_hello
+# env: DATABASE_HOST=localhost DATABASE_POST=3306 DATABASE_USER=root DATABASE_PASSWORD=root DATABASE_NAME=nest_api_hello
+# docker env: -e DATABASE_HOST=localhost -e DATABASE_POST=3306 -e DATABASE_USER=root -e DATABASE_PASSWORD=root -e DATABASE_NAME=nest_api_hello
+
+DATABASE_HOST=localhost
+DATABASE_POST=3306
+DATABASE_USER=root
+DATABASE_PASSWORD=root
+DATABASE_NAME=nest_api_hello
 ```
 
 ## Installation
