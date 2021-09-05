@@ -11,6 +11,17 @@ docker pull user/image:tag
 docker run -d -p 3000:3000 -it user/image:tag
 ```
 
+## Env
+
+```sh
+# -e host=localhost -e port=3306 -e username=root -e password=root -e database=nest_api_hello
+host=localhost
+port=3306
+username=root
+password=root
+database=nest_api_hello
+```
+
 ## Installation
 
 ```bash
