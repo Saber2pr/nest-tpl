@@ -3,12 +3,12 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const mysqlOptions = envConf<TypeOrmModuleOptions>({
   development: {
-    type: 'mysql',
+    type: 'mongodb',
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'root',
-    database: 'nest_api_hello',
+    password: '123456',
+    database: 'test',
     autoLoadEntities: true,
     synchronize: true,
   },
